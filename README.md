@@ -3,14 +3,14 @@
 
 ---
 
-### 🌟 Overview
+### Overview
 **DairyCow-SNA** is an open-source AI pipeline that detects, tracks, and interprets the social behavior of dairy cows using computer vision and machine learning.  
 It integrates **YOLOv11**, **ByteTrack**, and **ZebraPose** models to identify cows, estimate keypoints, and infer interactions — generating digital social profiles for each animal.  
 The goal is to advance **precision livestock management** and improve **animal welfare** through data-driven behavioral insights.
 
 ---
 
-### 🔬 Core Modules
+### Core Modules
 | Module | Purpose |
 |---------|----------|
 | **Object Detection Training** | Trains YOLO models on barn environments to locate individual cows. |
@@ -23,14 +23,14 @@ The goal is to advance **precision livestock management** and improve **animal w
 
 ---
 
-### ⚙️ Workflow
+### Workflow
 Detection → Tracking → Identification → Keypoint Detection → Interaction Inference → Social Network Graphs
 
 Each cow becomes a **node** in a dynamic social graph, and interactions form **edges** weighted by frequency and duration.
 
 ---
 
-### 🚀 Quick Start
+### Quick Start
 
 #### 1. Clone and set up
 ```bash
@@ -76,8 +76,8 @@ This project is licensed under the Apache 2.0 License.
 See the LICENSE file for details.
 --
 Links
-🔗 MooAnalytica Research Group - https://mooanalytica.com
-🎓 Dalhousie Faculty of Agriculture & Computer Science - https://www.dal.ca/faculty/computerscience/faculty-staff/Suresh-Raja-Neethirajan.html
+ MooAnalytica Research Group - https://mooanalytica.com
+ Dalhousie Faculty of Agriculture & Computer Science - https://www.dal.ca/faculty/computerscience/faculty-staff/Suresh-Raja-Neethirajan.html
 
 Citation (placeholder)
 If you use this work, please cite:
