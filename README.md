@@ -83,8 +83,3 @@ Citation (placeholder)
 If you use this work, please cite:
 S. Parivendan, K. Sailunaz, S. Neethirajan (2025). DairyCow-SNA: AI-Enabled Social Network Analysis of Dairy Cows.
 -
-Update README with full project documentation
-3. Click **Commit changes → Commit directly to the main branch**.
-4. Then click **Preview** to confirm formatting (it will show headers, tables, and code boxes).
-
----
