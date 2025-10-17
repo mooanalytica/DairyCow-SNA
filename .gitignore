@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Virtual envs
+venv/
+.venv/
+.venv*/
+env/
+.env/
+
+# IDEs & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Your temp/output
+Temporary_Files/
+runs/
+outputs/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Virtual envs
+.venv*/
+venv/
+env/
+.env/
+
+# Build & dist
+build/
+dist/
+*.egg-info/
+
+# Common large ML artifacts
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+*.tflite
+*.pb
+*.weights
+
+# Logs/outputs
+runs/
+outputs/
+logs/
+*.log
+
+# Videos & archives (if not intended for git)
+*.mp4
+*.avi
+*.mov
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# IDE
+.idea/
+.vscode/
+
+# Project-specific (ByteTrack_Optimization)
+Other_Process_Files/ByteTrack_Optimization/.venv/
+Other_Process_Files/ByteTrack_Optimization/build/
+Other_Process_Files/ByteTrack_Optimization/dist/
+Other_Process_Files/ByteTrack_Optimization/runs/
+Other_Process_Files/ByteTrack_Optimization/outputs/
+Other_Process_Files/ByteTrack_Optimization/logs/
+Other_Process_Files/ByteTrack_Optimization/__pycache__/
