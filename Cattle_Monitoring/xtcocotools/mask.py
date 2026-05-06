@@ -1,1 +1,0 @@
-from pycocotools.mask import *

@@ -1,1 +1,0 @@
-from pycocotools.cocoeval import *
