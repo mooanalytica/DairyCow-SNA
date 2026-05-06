@@ -1,3 +1,0 @@
-#cmakedefine DATASET_DIR "@DATASET_DIR@"
-#cmakedefine USE_CUDA
-#cmakedefine USE_DOUBLE
