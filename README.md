@@ -56,6 +56,8 @@ Project root contents:
   Default location for output run folders.
 - `models/`
   Required model directory. In this GitHub-pushable version, the large model files are not committed and must be downloaded separately.
+- `Beyond_Proximity_Dataset/`
+  Reference folder for the public sample dataset download location and expected structure.
 - `vendor/ByteTrack/`
   Vendored ByteTrack runtime code.
 - `vendor/ZebraPoseViTPose/`
@@ -89,6 +91,28 @@ Download them from this Google Drive folder:
 https://drive.google.com/drive/folders/1im99sooJqAi70oieGIO0xhpFePfS0qoD?usp=sharing
 
 After downloading, place them directly into the `models/` folder.
+
+## Sample Dataset
+
+Sample data from the Beyond Proximity dataset is also stored externally and is not committed into this GitHub repository.
+
+Download the sample dataset from this Google Drive folder:
+
+https://drive.google.com/drive/folders/1sP_RqsjEJuXkHw8UJ1wP3fz_waFQeCyj?usp=sharing
+
+The external sample dataset currently contains these top-level directories:
+
+- `Interaction_Feature_Keypoint`
+- `Keypoint_Detection`
+- `Videos`
+
+If you want the local project layout to mirror the referenced dataset name, place the downloaded contents under:
+
+- `./Beyond_Proximity_Dataset/Interaction_Feature_Keypoint`
+- `./Beyond_Proximity_Dataset/Keypoint_Detection`
+- `./Beyond_Proximity_Dataset/Videos`
+
+The repository includes a placeholder `Beyond_Proximity_Dataset/README.md` so the sample dataset is clearly referenced inside GitHub without storing the data itself in version control.
 
 ## Default Project Behavior
 
@@ -131,10 +155,11 @@ By default, the runner scans the chosen input directory and processes all suppor
 The normal workflow is:
 
 1. Download the model files into `models/`.
-2. Set up the Python environment.
-3. Put videos into `inputs/` or pass specific video paths with `--video`.
-4. Run `run_full_interaction_pipeline.py`.
-5. Read the results from a new numbered folder under `outputs/`.
+2. Optionally download the public sample dataset into `Beyond_Proximity_Dataset/`.
+3. Set up the Python environment.
+4. Put videos into `inputs/` or pass specific video paths with `--video`.
+5. Run `run_full_interaction_pipeline.py`.
+6. Read the results from a new numbered folder under `outputs/`.
 
 ## Linux Setup
 
@@ -467,6 +492,17 @@ Annotated output video, unless `--disable-annotated-video` is used.
 
 The code supports this file, but it is disabled by default because `SAVE_KEYPOINTS_CSV = False` in the runner.
 
+## Referenced External Assets
+
+The repository intentionally references, rather than stores, two large external asset bundles:
+
+- model weights:
+  https://drive.google.com/drive/folders/1im99sooJqAi70oieGIO0xhpFePfS0qoD?usp=sharing
+- sample Beyond Proximity dataset:
+  https://drive.google.com/drive/folders/1sP_RqsjEJuXkHw8UJ1wP3fz_waFQeCyj?usp=sharing
+
+This keeps the GitHub repository lightweight while still documenting how to reconstruct the runnable environment and sample-data layout.
+
 ## Important Runtime Notes
 
 - The runner creates a fresh numbered output folder on each run instead of overwriting the last run automatically.
@@ -490,6 +526,7 @@ Full cow video datasets are restricted and are not published online in this repo
 
 - only project code, configuration, and lightweight examples should be shared here
 - model files are hosted externally due to GitHub size limits
+- the publicly shared Beyond Proximity sample dataset is referenced externally through Google Drive rather than committed into Git
 - any third-party or human data from external sources should remain removed for copyright and privacy compliance
 
 ## Team
@@ -530,6 +567,7 @@ Before running a large batch, do a quick smoke test:
 If the environment is already set up, the common usage is exactly this:
 
 1. Download the required model files into `models/`.
-2. Put videos into `inputs/`.
-3. Run `run_full_interaction_pipeline.py`.
-4. Read the results from the newest numbered folder under `outputs/`.
+2. Optionally download the public sample dataset into `Beyond_Proximity_Dataset/`.
+3. Put videos into `inputs/` or select files from the downloaded sample dataset.
+4. Run `run_full_interaction_pipeline.py`.
+5. Read the results from the newest numbered folder under `outputs/`.
