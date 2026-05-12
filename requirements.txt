@@ -6,7 +6,7 @@ joblib>=1.4,<2
 numpy<2
 opencv-python-headless>=4.10,<5
 pandas>=2.2,<3
-torch==2.5.1
+torch==2.8.0
 torchaudio==2.5.1
 torchvision==0.20.1
 tqdm>=4.66,<5
