@@ -229,7 +229,7 @@ class Body3DMviewDirectPanopticDataset(Kpt3dMviewRgbImgDirectDataset):
                             dtype=float)
 
                         cnt = 0
-                        person_ids = -np.ones(self.max_persons, dtype=np.int)
+                        person_ids = -np.ones(self.max_persons, dtype=int)
                         for body in bodies:
                             if cnt >= self.max_persons:
                                 break
