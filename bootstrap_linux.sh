@@ -4,6 +4,7 @@ set -euo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
 VENV_DIR="${PROJECT_ROOT}/venv"
 TORCH_VARIANT="${TORCH_VARIANT:-auto}"   # auto | cpu | cu118
+RUNTIME_REQUIREMENTS_PATH="${PROJECT_ROOT}/linux-runtime-pins.txt"
 
 echo "[info] project root: ${PROJECT_ROOT}"
 echo "[info] requested torch variant: ${TORCH_VARIANT}"
@@ -50,9 +51,11 @@ echo "[info] resolved torch variant: ${RESOLVED_TORCH_VARIANT}"
 case "${RESOLVED_TORCH_VARIANT}" in
   cu118)
     TORCH_INDEX_URL="https://download.pytorch.org/whl/cu118"
+    MMCV_WHEEL_INDEX="https://download.openmmlab.com/mmcv/dist/cu118/torch2.0.0/index.html"
     ;;
   cpu)
     TORCH_INDEX_URL="https://download.pytorch.org/whl/cpu"
+    MMCV_WHEEL_INDEX="https://download.openmmlab.com/mmcv/dist/cpu/torch2.0.0/index.html"
     ;;
   *)
     echo "[error] Unsupported TORCH_VARIANT: ${RESOLVED_TORCH_VARIANT}"
@@ -65,7 +68,8 @@ source "${VENV_DIR}/bin/activate"
 
 python -m pip install --upgrade pip setuptools wheel
 python -m pip install --index-url "${TORCH_INDEX_URL}" torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1
-python -m pip install -r "${PROJECT_ROOT}/requirements.txt"
+python -m pip install -r "${RUNTIME_REQUIREMENTS_PATH}"
+python -m pip install mmcv-full==1.5.0 -f "${MMCV_WHEEL_INDEX}"
 python -m pip install cython_bbox
 
 python - <<PY

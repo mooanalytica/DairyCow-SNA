@@ -60,7 +60,7 @@ def load_net(fname, net, prefix='', load_state_dict=False):
                 lr = h5f.attrs['learning_rates']
             else:
                 lr = h5f.attrs.get('lr', -1)
-                lr = np.asarray([lr] if lr > 0 else [], dtype=np.float)
+                lr = np.asarray([lr] if lr > 0 else [], dtype=float)
 
             return epoch, lr
 
@@ -250,7 +250,7 @@ def im_preprocess(image):
 
 
 def extract_image_patches(image, bboxes):
-    bboxes = np.round(bboxes).astype(np.int)
+    bboxes = np.round(bboxes).astype(int)
     bboxes = clip_boxes(bboxes, image.shape)
     patches = [image[box[1]:box[3], box[0]:box[2]] for box in bboxes]
     return patches

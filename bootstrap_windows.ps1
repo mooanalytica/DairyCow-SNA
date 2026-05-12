@@ -8,7 +8,7 @@ $ErrorActionPreference = "Stop"
 
 $ProjectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $VenvDir = Join-Path $ProjectRoot "venv_windows"
-$RequirementsPath = Join-Path $ProjectRoot "requirements_windows.txt"
+$RequirementsPath = Join-Path $ProjectRoot "windows-runtime-pins.txt"
 
 function Resolve-TorchVariant {
     param([string]$Requested)
