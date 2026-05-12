@@ -67,9 +67,11 @@ Project root contents:
 - `bootstrap_windows.ps1`
   Windows environment bootstrap.
 - `requirements.txt`
-  Linux-oriented Python requirements.
-- `requirements_windows.txt`
-  Windows-oriented Python requirements.
+  Lightweight root requirements for CI, dependency submission, and smoke tests.
+- `linux-runtime-pins.txt`
+  Linux runtime dependency pins used by `bootstrap_linux.sh`.
+- `windows-runtime-pins.txt`
+  Windows runtime dependency pins used by `bootstrap_windows.ps1`.
 
 ## Model Weights
 
@@ -161,6 +163,10 @@ The normal workflow is:
 5. Run `run_full_interaction_pipeline.py`.
 6. Read the results from a new numbered folder under `outputs/`.
 
+For lightweight setup, GitHub dependency submission, and reviewer-safe smoke tests, install the root `requirements.txt`.
+
+For the full packaged pipeline environment, use the platform bootstrap scripts, which install `linux-runtime-pins.txt` or `windows-runtime-pins.txt` plus the matching Torch and `mmcv-full` wheels for the selected platform.
+
 ## Linux Setup
 
 ### What The Linux Bootstrap Does
@@ -172,7 +178,8 @@ It:
 - creates a virtual environment in `./venv`
 - installs Python packaging tools
 - installs PyTorch
-- installs project Python dependencies
+- installs runtime dependencies from `linux-runtime-pins.txt`
+- installs `mmcv-full==1.5.0` from an OpenMMLab wheel index chosen to match the selected Torch variant
 - installs `cython_bbox`
 - verifies that the required project files and imports are present
 
@@ -240,7 +247,7 @@ It:
 
 - creates a virtual environment in `.\venv_windows`
 - installs PyTorch
-- installs the Windows-oriented requirements
+- installs runtime dependencies from `windows-runtime-pins.txt`
 - installs `mmcv-full==1.5.0` from an OpenMMLab wheel index chosen to match the selected Torch variant
 - installs `cython_bbox`
 - verifies that the required project files and imports are present
